@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ClientApp</string>
+    <string name="form_username">Username</string>
+    <string name="form_password">Password</string>
+    <string name="form_telephone">Telephone</string>
+    <string name="button_save_employee">Save employee</string>
+    <string name="button_login">Авторизация</string>
+    <string name="filledBox_accName">Логин</string>
+    <string name="textInput_password">Пароль</string>
+    <string name="login_text">Авторизоваться</string>
+    <string name="register_hint">Ещё не зарегистрировались?</string>
+    <string name="button_createAcc">Создать аккаунт</string>
+    <string name="registerText">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="email">Почта</string>
+    <string name="passAgain">Подтвердите пароль</string>
+    <string name="SignUp">Регистрация</string>
+    <string name="text_haveAcc">Уже еcть аккаунт?</string>Что-то ищете?
+    <string name="text_search">Что-то ищете?</string>
+    <string name="deliver_text">Закажи,</string>
+    <string name="pay_text">оплати,</string>
+    <string name="take_text">забери!</string>
+    <string name="categories">Категории</string>
+    <string name="catalog">Каталог</string>
+    <string name="profile">Профиль</string>
+    <string name="cart">Корзина</string>
+    <string name="other">Другое</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="addBtn">+Add</string>
+</resources>
