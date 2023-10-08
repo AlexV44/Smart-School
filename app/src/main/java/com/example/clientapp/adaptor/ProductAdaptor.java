@@ -34,9 +34,9 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdaptor.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.title.setText(products.get(position).getTitle());
-
+        holder.title.setText(products.get(position).getTitle() + " ·");
         holder.fee.setText(String.valueOf(products.get(position).getFee()));
+        holder.description.setText((String.valueOf(products.get(position).getDescription())));
 
         int drawableResourceId = holder.itemView.getContext()
                 .getResources()
@@ -63,18 +63,17 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, fee, addBtn;
+        TextView title, fee, description;
         ImageView pic;
         ConstraintLayout constraintLayoutBtn;
 
         public ViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
-
             fee = itemView.findViewById(R.id.fee);
-            addBtn = itemView.findViewById(R.id.addBtn);
             pic = itemView.findViewById(R.id.pic);
             constraintLayoutBtn = itemView.findViewById(R.id.constraintLayoutBtn);
+            description = itemView.findViewById(R.id.description);
         }
     }
 }

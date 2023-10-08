@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayoutBtn"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,13 +13,14 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         android:text="title"
         android:textColor="#373b54"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toEndOf="@+id/pic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,44 +39,53 @@
         android:id="@+id/fee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="3dp"
         android:text="fee"
         android:textColor="#373b54"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/pic"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toEndOf="@+id/pic" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/banknote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:text="$"
-        android:textColor="@color/teal_700"
-        android:textSize="16sp"
+        android:text="@string/Banknote"
+        android:textColor="#373b54"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/fee"
-        app:layout_constraintEnd_toStartOf="@+id/fee"
+        app:layout_constraintStart_toEndOf="@+id/fee"
         app:layout_constraintTop_toTopOf="@+id/fee" />
 
-    <TextView
-        android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_login"
-        android:paddingStart="30dp"
-        android:paddingTop="3dp"
-        android:paddingEnd="30dp"
-        android:paddingBottom="3dp"
-        android:text="@string/addBtn"
-        android:textColor="#373b54"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/pic"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toEndOf="@+id/fee" />
+        app:layout_constraintStart_toEndOf="@+id/pic"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="32dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="description"
+            android:textColor="#77777A"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

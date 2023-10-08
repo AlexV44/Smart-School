@@ -101,9 +101,9 @@ public class CatalogFragment extends Fragment {
         recyclerViewProductsList.setLayoutManager(linearLayoutManager);
 
         ArrayList<Product> productsList = new ArrayList<>();
-        productsList.add(new Product("Pepperoni pizza", "pop_1", "slices peperoni, cheese", 9.76));
-        productsList.add(new Product("Burger", "pop_2", "cheese, sauce", 8.34));
-        productsList.add(new Product("Vegetable pizza", "pop_3", "cheese, olive oil", 10.));
+        productsList.add(new Product("Pepperoni pizza", "pop_1", "Slices peperoni, cheese, tomatoes, oregano, chicken", 9.76));
+        productsList.add(new Product("Burger", "pop_2", "Cheese, sauce", 8.34));
+        productsList.add(new Product("Vegetable pizza", "pop_3", "Cheese, olive oil", 10.));
 
         adapter2 = new ProductAdaptor(productsList);
         recyclerViewProductsList.setAdapter(adapter2);

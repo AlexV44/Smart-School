@@ -28,6 +28,7 @@
     <string name="other">Другое</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_to_cart">Add to Cart</string>
-    <string name="addBtn">+Add</string>
+    <string name="add_to_cart">В корзину</string>
+    <string name="addBtn">В корзину</string>
+    <string name="Banknote">Br</string>
 </resources>

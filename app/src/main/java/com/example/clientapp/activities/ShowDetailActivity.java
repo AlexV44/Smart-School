@@ -38,7 +38,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 .into(picProduct);
 
         titleDetail.setText(object.getTitle());
-        feeDetail.setText("$" + object.getFee());
+        feeDetail.setText(object.getFee() + "Br");
 
         descriptionDetail.setText(object.getDescription());
         numberOrderDetail.setText(String.valueOf(numberOrder));
