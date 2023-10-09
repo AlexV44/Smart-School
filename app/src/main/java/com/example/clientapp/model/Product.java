@@ -7,21 +7,21 @@ public class Product implements Serializable {
     private String title;
     private String pic;
     private String description;
-    private Double fee;
+    private Double price;
     private int numberInCart;
 
-    public Product(String title, String pic, String description, Double fee) {
+    public Product(String title, String pic, String description, Double price) {
         this.title = title;
         this.pic = pic;
         this.description = description;
-        this.fee = fee;
+        this.price = price;
     }
 
-    public Product(String title, String pic, String description, Double fee, int numberInCart) {
+    public Product(String title, String pic, String description, Double price, int numberInCart) {
         this.title = title;
         this.pic = pic;
         this.description = description;
-        this.fee = fee;
+        this.price = price;
         this.numberInCart = numberInCart;
     }
 
@@ -49,12 +49,12 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public Double getFee() {
-        return fee;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setFee(Double fee) {
-        this.fee = fee;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public int getNumberInCart() {

@@ -8,7 +8,6 @@
     android:focusableInTouchMode="true"
     tools:context=".activities.MainActivity">
 
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"

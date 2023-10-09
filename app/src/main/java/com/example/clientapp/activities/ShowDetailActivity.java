@@ -14,7 +14,7 @@ import com.example.clientapp.helper.ManagementCart;
 
 public class ShowDetailActivity extends AppCompatActivity {
 
-    private TextView addToCartBtn, titleDetail, feeDetail, descriptionDetail, numberOrderDetail;
+    private TextView addToCartBtn, titleDetail, priceDetail, descriptionDetail, numberOrderDetail;
     private ImageView plusBtn, minusBtn, picProduct;
     private Product object;
     private int numberOrder = 1;
@@ -38,7 +38,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 .into(picProduct);
 
         titleDetail.setText(object.getTitle());
-        feeDetail.setText(object.getFee() + "Br");
+        priceDetail.setText(object.getPrice() + "Br");
 
         descriptionDetail.setText(object.getDescription());
         numberOrderDetail.setText(String.valueOf(numberOrder));
@@ -73,7 +73,7 @@ public class ShowDetailActivity extends AppCompatActivity {
     private void initView() {
         addToCartBtn = findViewById(R.id.addToCartBtn);
         titleDetail = findViewById(R.id.titleDetail);
-        feeDetail = findViewById(R.id.priceDetail);
+        priceDetail = findViewById(R.id.priceDetail);
         descriptionDetail = findViewById(R.id.descriptionDetail);
         numberOrderDetail = findViewById(R.id.numberOrderDetail);
         plusBtn = findViewById(R.id.plusBtn);

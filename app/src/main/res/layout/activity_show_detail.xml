@@ -51,7 +51,8 @@
                     android:id="@+id/minusBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/minus" />
+                    app:srcCompat="@drawable/minus"
+                    android:layout_marginBottom="1dp"/>
 
                 <TextView
                     android:id="@+id/numberOrderDetail"

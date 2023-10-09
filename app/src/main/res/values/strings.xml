@@ -31,4 +31,8 @@
     <string name="add_to_cart">В корзину</string>
     <string name="addBtn">В корзину</string>
     <string name="Banknote">Br</string>
+    <string name="my_cart_text">Моя корзина</string>
+    <string name="items_total">Всего:</string>
+    <string name="order_btn">Заказать</string>
+    <string name="emptyCart">Корзина пуста.</string>
 </resources>

@@ -18,7 +18,7 @@ import com.example.clientapp.domain.CategoryDomain;
 import java.util.ArrayList;
 
 public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
-    ArrayList<CategoryDomain> categoryDomains;
+    private ArrayList<CategoryDomain> categoryDomains;
 
     public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains) {
         this.categoryDomains = categoryDomains;

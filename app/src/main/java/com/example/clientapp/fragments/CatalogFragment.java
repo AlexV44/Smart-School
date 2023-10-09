@@ -30,9 +30,8 @@ public class CatalogFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    ActivityMainBinding binding;
-    RecyclerView.Adapter adapter, adapter2;
-    RecyclerView recyclerViewCategoryList, recyclerViewProductsList;
+    private RecyclerView.Adapter adapter, adapter2;
+    private RecyclerView recyclerViewCategoryList, recyclerViewProductsList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;

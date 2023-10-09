@@ -20,10 +20,10 @@ import com.example.clientapp.model.Product;
 import java.util.ArrayList;
 
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder> {
-    ArrayList<Product> products;
+    private ArrayList<Product> productsList;
 
-    public ProductAdaptor(ArrayList<Product> products) {
-        this.products = products;
+    public ProductAdaptor(ArrayList<Product> productsList) {
+        this.productsList = productsList;
     }
 
     @Override
@@ -34,13 +34,13 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdaptor.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.title.setText(products.get(position).getTitle() + " ·");
-        holder.fee.setText(String.valueOf(products.get(position).getFee()));
-        holder.description.setText((String.valueOf(products.get(position).getDescription())));
+        holder.title.setText(productsList.get(position).getTitle() + " ·");
+        holder.price.setText(String.valueOf(productsList.get(position).getPrice()));
+        holder.description.setText((String.valueOf(productsList.get(position).getDescription())));
 
         int drawableResourceId = holder.itemView.getContext()
                 .getResources()
-                .getIdentifier(products.get(position).getPic(), "drawable", holder.itemView.getContext().getPackageName());
+                .getIdentifier(productsList.get(position).getPic(), "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
@@ -50,7 +50,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
-                intent.putExtra("object", products.get(position));
+                intent.putExtra("object", productsList.get(position));
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -59,18 +59,18 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return productsList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, fee, description;
-        ImageView pic;
-        ConstraintLayout constraintLayoutBtn;
+        private TextView title, price, description;
+        private ImageView pic;
+        private ConstraintLayout constraintLayoutBtn;
 
         public ViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
-            fee = itemView.findViewById(R.id.fee);
+            price = itemView.findViewById(R.id.price);
             pic = itemView.findViewById(R.id.pic);
             constraintLayoutBtn = itemView.findViewById(R.id.constraintLayoutBtn);
             description = itemView.findViewById(R.id.description);

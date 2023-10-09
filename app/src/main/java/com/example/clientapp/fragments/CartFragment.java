@@ -2,13 +2,21 @@ package com.example.clientapp.fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
+import com.example.clientapp.ChangeNumberItemsListener;
 import com.example.clientapp.R;
+import com.example.clientapp.adaptor.CartListAdaptor;
+import com.example.clientapp.helper.ManagementCart;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,12 @@ import com.example.clientapp.R;
  * create an instance of this fragment.
  */
 public class CartFragment extends Fragment {
+    private RecyclerView.Adapter adapter;
+    private RecyclerView recyclerViewList;
+    private ManagementCart managementCart;
+    private TextView orderPriceText, emptyText;
+    private AppCompatButton orderBtn;
+    private ScrollView scrollView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +75,55 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
+
+        managementCart = new ManagementCart(requireContext());
+        initView(view);
+        initList();
+        calculateCart();
+
+        return view;
+    }
+
+    private void initView(View view) {
+        recyclerViewList = view.findViewById(R.id.recyclerViewCart);
+        orderPriceText = view.findViewById(R.id.orderPriceText);
+        emptyText = view.findViewById(R.id.emptyText);
+        scrollView = view.findViewById(R.id.scrollViewCart);
+        initOrderButton(view);
+    }
+
+    private void initOrderButton(View view) {
+        orderBtn = view.findViewById(R.id.orderBtn);
+
+        orderBtn.setOnClickListener(v -> OnOrderClick());
+    }
+
+    private void OnOrderClick() {
+
+    }
+
+    private void initList() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerViewList.setLayoutManager(linearLayoutManager);
+        adapter = new CartListAdaptor(managementCart.getListCart(), requireContext(), new ChangeNumberItemsListener() {
+            @Override
+            public void changed() {
+                calculateCart();
+            }
+        });
+        recyclerViewList.setAdapter(adapter);
+        if(managementCart.getListCart().isEmpty()) {
+            emptyText.setVisibility(View.VISIBLE);
+            scrollView.setVisibility(View.GONE);
+        } else {
+            emptyText.setVisibility(View.GONE);
+            scrollView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void calculateCart() {
+        double totalOrderPrice = managementCart.getTotalPrice();
+        orderPriceText.setText(String.valueOf(totalOrderPrice));
     }
 }
