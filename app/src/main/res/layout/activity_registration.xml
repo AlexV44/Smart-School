@@ -17,63 +17,59 @@
         android:textColor="#EFEFEF"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameField"
+        android:id="@+id/layoutFio"
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:singleLine="true"
         android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="26dp"
+        android:singleLine="true"
         app:hintTextColor="@color/button_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSignUp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfFio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
             android:drawableStart="@drawable/person_icon"
             android:drawablePadding="20dp"
-            android:hint="@string/filledBox_accName"
+            android:hint="@string/fio"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="#616161" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- TODO: delete Surname-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldName"
+        android:id="@+id/layoutSchoolIdentifier"
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
         android:singleLine="true"
         app:hintTextColor="@color/button_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameField">
+        app:layout_constraintTop_toBottomOf="@+id/email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfSchoolIdentifier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape"
-            android:digits="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-            android:drawableStart="@drawable/person_icon"
+            android:drawableStart="@drawable/password_icon"
             android:drawablePadding="20dp"
-            android:hint="@string/name"
+            android:hint="@string/schoolIdentifier"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="#616161" />
@@ -85,21 +81,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="32dp"
         android:clipToPadding="false"
         android:hint="@string/email"
         app:hintTextColor="@color/button_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldName">
+        app:layout_constraintTop_toBottomOf="@+id/layoutFio">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tfEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_./-"
             android:drawableStart="@drawable/email_icon"
             android:drawablePadding="20dp"
             android:inputType="text"
@@ -109,25 +104,25 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tfPass"
+        android:id="@+id/layoutPass"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
         android:hint="@string/textInput_password"
         app:hintTextColor="@color/button_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSchoolIdentifier"
         app:passwordToggleContentDescription="description"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
             android:drawableStart="@drawable/password_icon"
             android:drawablePadding="20dp"
             android:inputType="textPassword"
@@ -137,25 +132,25 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/PassReturn"
+        android:id="@+id/layoutPassReturn"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
         android:hint="@string/passAgain"
         app:hintTextColor="@color/button_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfPass"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPass"
         app:errorEnabled="true"
         app:passwordToggleContentDescription="description">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfPassReturn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
             android:drawableStart="@drawable/password_icon"
             android:drawablePadding="20dp"
             android:inputType="textPassword"
@@ -165,44 +160,43 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCreateAcc"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="32dp"
         android:background="@drawable/button_login"
         android:text="@string/SignUp"
         android:textColor="@color/white"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PassReturn" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutPassReturn" />
 
     <Button
-        android:id="@+id/btnReturn"
+        android:id="@+id/btnToLogin"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="169dp"
-        android:layout_height="41dp"
+        android:layout_width="168dp"
+        android:layout_height="42dp"
         android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@+id/btnGoRegistr"
+        android:layout_toEndOf="@+id/textGoRegistr"
         android:text="@string/login_text"
         android:textColor="@color/button_login"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnCreateAcc"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreateAcc"
-        app:layout_constraintVertical_bias="0.424" />
+        app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
     <TextView
-        android:id="@+id/btnGoRegistr"
+        android:id="@+id/textGoRegistr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/text_haveAcc"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReturn"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreateAcc"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnToLogin"
+        app:layout_constraintEnd_toStartOf="@+id/btnToLogin"
+        app:layout_constraintTop_toTopOf="@+id/btnToLogin" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

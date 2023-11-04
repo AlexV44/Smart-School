@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ClientApp</string>
+    <string name="app_name">SmartSchool</string>
     <string name="form_username">Username</string>
     <string name="form_password">Password</string>
     <string name="form_telephone">Telephone</string>
@@ -11,7 +11,7 @@
     <string name="register_hint">Ещё не зарегистрировались?</string>
     <string name="button_createAcc">Создать аккаунт</string>
     <string name="registerText">Регистрация</string>
-    <string name="name">Имя</string>
+    <string name="fio">ФИО</string>
     <string name="surname">Фамилия</string>
     <string name="email">Почта</string>
     <string name="passAgain">Подтвердите пароль</string>
@@ -35,4 +35,5 @@
     <string name="items_total">Всего:</string>
     <string name="order_btn">Заказать</string>
     <string name="emptyCart">Корзина пуста.</string>
+    <string name="schoolIdentifier">Ключ учреждения образования</string>
 </resources>

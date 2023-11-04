@@ -2,10 +2,11 @@ package com.example.clientapp.model;
 
 public class Smember {
     private int id;
-    private String username;
     private String password;
     private String email;
     private String name;
+    private Role role;
+    private School school;
 
     public int getId() {
         return id;
@@ -13,14 +14,6 @@ public class Smember {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -47,12 +40,29 @@ public class Smember {
         this.name = name;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
     @Override
     public String toString() {
         return "Smember{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", role='" + role + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

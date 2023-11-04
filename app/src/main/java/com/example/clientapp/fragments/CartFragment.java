@@ -18,6 +18,8 @@ import com.example.clientapp.R;
 import com.example.clientapp.adaptor.CartListAdaptor;
 import com.example.clientapp.helper.ManagementCart;
 
+import java.math.BigDecimal;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CartFragment#newInstance} factory method to
@@ -123,7 +125,7 @@ public class CartFragment extends Fragment {
     }
 
     private void calculateCart() {
-        double totalOrderPrice = managementCart.getTotalPrice();
-        orderPriceText.setText(String.valueOf(totalOrderPrice));
+        BigDecimal bigTotalPrice = BigDecimal.valueOf(managementCart.getTotalPrice());
+        orderPriceText.setText(String.valueOf(bigTotalPrice));
     }
 }

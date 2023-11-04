@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.example.clientapp.ChangeNumberItemsListener;
 import com.example.clientapp.model.Product;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class ManagementCart {
@@ -60,10 +61,12 @@ public class ManagementCart {
 
     public Double getTotalPrice() {
         ArrayList<Product> productList = getListCart();
-        double price = 0;
+        BigDecimal bigPrice = new BigDecimal(0.);
         for (int i = 0; i < productList.size(); i++) {
-            price = price + (productList.get(i).getPrice() * productList.get(i).getNumberInCart());
+            BigDecimal bigDecimal1 = BigDecimal.valueOf(productList.get(i).getPrice());
+            BigDecimal bigDecimal2 = BigDecimal.valueOf(productList.get(i).getNumberInCart());
+            bigPrice = bigPrice.add(bigDecimal1.multiply(bigDecimal2));
         }
-        return price;
+        return bigPrice.doubleValue();
     }
 }

@@ -17,6 +17,7 @@ import com.example.clientapp.R;
 import com.example.clientapp.helper.ManagementCart;
 import com.example.clientapp.model.Product;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class CartListAdaptor extends RecyclerView.Adapter<CartListAdaptor.ViewHolder> {
@@ -40,8 +41,10 @@ public class CartListAdaptor extends RecyclerView.Adapter<CartListAdaptor.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(productsList.get(position).getTitle());
         holder.itemPrice.setText(String.valueOf(productsList.get(position).getPrice()));
-        holder.totalItemPrice.setText(String.valueOf(productsList.get(position).getPrice()
-                * productsList.get(position).getNumberInCart()));
+
+        BigDecimal bigDecimalPrice = BigDecimal.valueOf(productsList.get(position).getPrice());
+        BigDecimal bigDecimalNumberInCart = BigDecimal.valueOf(productsList.get(position).getNumberInCart());
+        holder.totalItemPrice.setText(String.valueOf(bigDecimalPrice.multiply(bigDecimalNumberInCart)));
 
         holder.num.setText(String.valueOf(productsList.get(position).getNumberInCart()));
 
