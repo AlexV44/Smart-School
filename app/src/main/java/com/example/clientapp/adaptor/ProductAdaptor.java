@@ -73,7 +73,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
             price = itemView.findViewById(R.id.price);
             pic = itemView.findViewById(R.id.pic);
             constraintLayoutBtn = itemView.findViewById(R.id.constraintLayoutBtn);
-            description = itemView.findViewById(R.id.description);
+            description = itemView.findViewById(R.id.productList);
         }
     }
 }

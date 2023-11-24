@@ -9,10 +9,10 @@
     tools:context=".activities.LoginActivity">
 
     <TextView
-        android:id="@+id/textFieldLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+    android:id="@+id/textFieldLogin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
     android:gravity="center_horizontal"
     android:text="@string/button_login"
     android:textColor="@color/white"
@@ -46,7 +46,6 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/person_icon"
         android:background="@drawable/edittext_shape"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
         android:drawablePadding="10dp"
         android:inputType="text"
         android:padding="20dp"
@@ -76,7 +75,6 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/password_icon"
         android:background="@drawable/edittext_shape"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
         android:drawablePadding="10dp"
         android:inputType="textPassword"
         android:padding="20dp"
@@ -102,7 +100,7 @@
     tools:ignore="TextContrastCheck,TextContrastCheck" />
 
 <Button
-    android:id="@+id/btnGoRegistr"
+    android:id="@+id/btnGoRegister"
     style="@style/Widget.AppCompat.Button.Borderless.Colored"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -117,19 +115,19 @@
     app:layout_constraintTop_toBottomOf="@+id/button_login"
     app:layout_constraintVertical_bias="0.37" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_above="@+id/btnGoRegistr"
-    android:gravity="center_horizontal"
-    android:text="@string/register_hint"
-    android:textColor="@color/white"
-    app:layout_constraintBottom_toTopOf="@+id/btnGoRegistr"
-    app:layout_constraintEnd_toEndOf="@+id/btnGoRegistr"
-    app:layout_constraintStart_toStartOf="@+id/btnGoRegistr"
-    app:layout_constraintTop_toBottomOf="@+id/button_login"
-    app:layout_constraintVertical_bias="1.0">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnGoRegister"
+        android:gravity="center_horizontal"
+        android:text="@string/register_hint"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoRegister"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoRegister"
+        app:layout_constraintStart_toStartOf="@+id/btnGoRegister"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:layout_constraintVertical_bias="1.0">
 
-</TextView>
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

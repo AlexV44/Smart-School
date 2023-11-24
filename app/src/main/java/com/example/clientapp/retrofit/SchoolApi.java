@@ -9,7 +9,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface SchoolApi {
-
     @GET("/school/get-all")
     Call<List<School>> getAllSchools();
 }

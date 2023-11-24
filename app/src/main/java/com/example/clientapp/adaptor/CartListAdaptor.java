@@ -92,7 +92,7 @@ public class CartListAdaptor extends RecyclerView.Adapter<CartListAdaptor.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.titleCart);
+            title = itemView.findViewById(R.id.orderId);
             itemPrice = itemView.findViewById(R.id.itemPrice);
             totalItemPrice = itemView.findViewById(R.id.totalItemPrice);
             pic = itemView.findViewById(R.id.picCart);

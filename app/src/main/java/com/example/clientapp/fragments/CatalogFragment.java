@@ -74,7 +74,7 @@ public class CatalogFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_catalog, container, false);
         recyclerViewCategory(view);
         recyclerViewProducts(view);
-        // Inflate the layout for this fragment
+
         return view;
     }
 

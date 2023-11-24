@@ -1,5 +1,6 @@
 package com.example.clientapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.clientapp.R;
+import com.example.clientapp.activities.StaffOrders;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +19,8 @@ import com.example.clientapp.R;
  * create an instance of this fragment.
  */
 public class OtherFragment extends Fragment {
+
+    private TextView orderText, elderMail;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +65,21 @@ public class OtherFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_other, container, false);
+        View view =  inflater.inflate(R.layout.fragment_other, container, false);
+        initView(view);
+
+        return view;
+    }
+
+    private void initView(View view) {
+        orderText = view.findViewById(R.id.ordersText);
+        elderMail = view.findViewById(R.id.elderMail);
+
+        orderText.setOnClickListener(v -> OnOrdersList());
+    }
+
+    private void OnOrdersList() {
+        Intent intent = new Intent(requireContext(), StaffOrders.class);
+        startActivity(intent);
     }
 }
