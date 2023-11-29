@@ -1,5 +1,6 @@
 package com.example.clientapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -12,13 +13,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clientapp.ChangeNumberItemsListener;
 import com.example.clientapp.R;
+import com.example.clientapp.activities.LoginActivity;
+import com.example.clientapp.activities.MainActivity;
 import com.example.clientapp.adaptor.CartListAdaptor;
 import com.example.clientapp.helper.ManagementCart;
+import com.example.clientapp.manager.UserSessionManager;
+import com.example.clientapp.model.LoginRequest;
+import com.example.clientapp.model.Order;
+import com.example.clientapp.model.Product;
+import com.example.clientapp.model.School;
+import com.example.clientapp.model.Smember;
+import com.example.clientapp.retrofit.MemberApi;
+import com.example.clientapp.retrofit.OrderApi;
+import com.example.clientapp.retrofit.RetrofitService;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +52,8 @@ public class CartFragment extends Fragment {
     private TextView orderPriceText, emptyText;
     private AppCompatButton orderBtn;
     private ScrollView scrollView;
+    private OrderApi orderApi;
+    private MemberApi memberApi;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -98,10 +120,30 @@ public class CartFragment extends Fragment {
     private void initOrderButton(View view) {
         orderBtn = view.findViewById(R.id.orderBtn);
 
+        RetrofitService retrofitService = new RetrofitService();
+        orderApi = retrofitService.getRetrofit().create(OrderApi.class);
+
         orderBtn.setOnClickListener(v -> OnOrderClick());
     }
 
     private void OnOrderClick() {
+        List<Product> orderProducts = managementCart.getListCart();
+        Order order = new Order();
+        order.setProducts(orderProducts);
+        order.setMemberId(UserSessionManager.getInstance().getSmember().getId());
+        order.setSchoolId(UserSessionManager.getInstance().getSmember().getSchoolId());
+        orderApi.takeorder(order).enqueue(new Callback<Order>() {
+            @Override
+            public void onResponse(Call<Order> call, Response<Order> response) {
+                Toast.makeText(requireContext(), "Заказ оформлен!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Order> call, Throwable t) {
+                int a = 1;
+                int b = a;
+            }
+        });
 
     }
 

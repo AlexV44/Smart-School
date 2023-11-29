@@ -32,6 +32,7 @@ public class ShowDetailActivity extends AppCompatActivity {
 
     private void getBundle() {
         object = (Product) getIntent().getSerializableExtra("object");
+
         int drawableResourceId = this.getResources().getIdentifier(object.getPic(), "drawable", this.getPackageName());
         Glide.with(this)
                 .load(drawableResourceId)
@@ -64,7 +65,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                object.setNumberInCart(numberOrder);
+                object.setQuantity(numberOrder);
                 managementCart.insertProduct(object);
             }
         });

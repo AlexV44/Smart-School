@@ -1,23 +1,39 @@
 package com.example.clientapp.fragments;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.clientapp.R;
 import com.example.clientapp.adaptor.CategoryAdaptor;
+import com.example.clientapp.adaptor.OrderAdaptor;
 import com.example.clientapp.adaptor.ProductAdaptor;
 import com.example.clientapp.databinding.ActivityMainBinding;
 import com.example.clientapp.domain.CategoryDomain;
+import com.example.clientapp.manager.UserSessionManager;
+import com.example.clientapp.model.LoginRequest;
+import com.example.clientapp.model.Order;
 import com.example.clientapp.model.Product;
+import com.example.clientapp.model.Smember;
+import com.example.clientapp.retrofit.MemberApi;
+import com.example.clientapp.retrofit.RetrofitService;
+import com.example.clientapp.retrofit.SchoolApi;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,13 +114,30 @@ public class CatalogFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerViewProductsList = view.findViewById(R.id.productsRecyclerView);
         recyclerViewProductsList.setLayoutManager(linearLayoutManager);
-
-        ArrayList<Product> productsList = new ArrayList<>();
-        productsList.add(new Product("Pepperoni pizza", "pop_1", "Slices peperoni, cheese, tomatoes, oregano, chicken", 9.76));
-        productsList.add(new Product("Burger", "pop_2", "Cheese, sauce", 8.34));
-        productsList.add(new Product("Vegetable pizza", "pop_3", "Cheese, olive oil", 10.));
-
-        adapter2 = new ProductAdaptor(productsList);
+        ArrayList<Product> products = new ArrayList<>();
+       /* ArrayList<Product> products = new ArrayList<>();
+        products.add(new Product("Pizza", "pop_1", "Slices peperoni, cheese, tomatoes, oregano, chicken", 9.76));
+        products.add(new Product("Burger", "pop_2", "Cheese, sauce", 8.34));
+        products.add(new Product("Vegetable pizza", "pop_3", "Cheese, olive oil", 10.));
+        adapter2 = new ProductAdaptor(products, requireActivity());
+        recyclerViewProductsList.setAdapter(adapter2);*/
+        RetrofitService retrofitService = new RetrofitService();
+        SchoolApi schoolApi = retrofitService.getRetrofit().create(SchoolApi.class);
+        adapter2 = new ProductAdaptor(products, requireActivity());
         recyclerViewProductsList.setAdapter(adapter2);
+        schoolApi.getProducts(UserSessionManager.getInstance().getSmember().getSchoolId()).enqueue(new Callback<List<Product>>() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                products.clear();
+                products.addAll(response.body());
+                adapter2.notifyDataSetChanged();
+            }
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                int a = 1;
+                int b = a;
+            }
+        });
     }
 }

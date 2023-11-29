@@ -1,5 +1,9 @@
 package com.example.clientapp.fragments;
 
+import static android.content.Intent.getIntent;
+import static android.content.Intent.getIntentOld;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +11,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.clientapp.R;
+import com.example.clientapp.activities.LoginActivity;
+import com.example.clientapp.model.Smember;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +23,8 @@ import com.example.clientapp.R;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+
+    private TextView textView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +69,13 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view =  inflater.inflate(R.layout.fragment_profile, container, false);
+        textView = view.findViewById(R.id.textViews);
+        Intent intent = getActivity().getIntent();
+        String name = intent.getStringExtra("name");
+        textView.setText(name);
+
+        return view;
     }
+
 }

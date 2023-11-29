@@ -4,11 +4,15 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
 
+    private int id;
     private String title;
     private String pic;
     private String description;
     private Double price;
-    private int numberInCart;
+    private int quantity;
+
+    public Product() {
+    }
 
     public Product(String title, String pic, String description, Double price) {
         this.title = title;
@@ -17,12 +21,12 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public Product(String title, String pic, String description, Double price, int numberInCart) {
+    public Product(String title, String pic, String description, Double price, int quantity) {
         this.title = title;
         this.pic = pic;
         this.description = description;
         this.price = price;
-        this.numberInCart = numberInCart;
+        this.quantity = quantity;
     }
 
     public String getTitle() {
@@ -34,7 +38,8 @@ public class Product implements Serializable {
     }
 
     public String getPic() {
-        return pic;
+        if(pic != null) return pic;
+        return "pop_1";
     }
 
     public void setPic(String pic) {
@@ -57,11 +62,19 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public int getNumberInCart() {
-        return numberInCart;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setNumberInCart(int numberInCart) {
-        this.numberInCart = numberInCart;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

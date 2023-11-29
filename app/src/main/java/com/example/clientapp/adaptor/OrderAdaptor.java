@@ -1,23 +1,32 @@
 package com.example.clientapp.adaptor;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clientapp.R;
 import com.example.clientapp.model.Order;
+import com.example.clientapp.retrofit.OrderApi;
+import com.example.clientapp.retrofit.RetrofitService;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OrderAdaptor extends RecyclerView.Adapter<OrderAdaptor.ViewHolder>{
 
-    private ArrayList<Order> orderList;
+    private List<Order> orderList;
 
-    public OrderAdaptor(ArrayList<Order> orderList) {
+    public OrderAdaptor(List<Order> orderList) {
         this.orderList = orderList;
     }
 
@@ -30,7 +39,7 @@ public class OrderAdaptor extends RecyclerView.Adapter<OrderAdaptor.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.orderId.setText(String.valueOf(1000 + orderList.get(position).getId()));
+        holder.orderId.setText(String.valueOf(orderList.get(position).getId()));
 
     }
 
@@ -40,12 +49,13 @@ public class OrderAdaptor extends RecyclerView.Adapter<OrderAdaptor.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView orderId, orderRecyclerView;
+        TextView orderId;
+        RecyclerView recyclerViewOrdersMain;
 
         public ViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
             orderId = itemView.findViewById(R.id.orderId);
-           // orderRecyclerView = itemView.findViewById(R.id.orderRecyclerView);
+            recyclerViewOrdersMain = itemView.findViewById(R.id.recyclerViewOrdersMain);
         }
     }
 }

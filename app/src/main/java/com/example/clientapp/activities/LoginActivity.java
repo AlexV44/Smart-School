@@ -10,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.clientapp.R;
+import com.example.clientapp.fragments.ProfileFragment;
+import com.example.clientapp.manager.UserSessionManager;
 import com.example.clientapp.model.LoginRequest;
 import com.example.clientapp.model.Smember;
 import com.example.clientapp.retrofit.MemberApi;
 import com.example.clientapp.retrofit.RetrofitService;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +81,20 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Неверный email или пароль.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "Вход выполнен успешно!", Toast.LENGTH_SHORT).show();
+                    Smember smember = new Smember();
+                    smember.setName(response.body().getName());
+                    smember.setEmail(response.body().getEmail());
+                    smember.setPassword(response.body().getPassword());
+                    smember.setId(response.body().getId());
+                    smember.setSchoolId(response.body().getSchoolId());
+                    UserSessionManager.getInstance().setSmember(smember);
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("id", response.body().getId());
+                    intent.putExtra("name", response.body().getName());
+                    intent.putExtra("email", response.body().getEmail());
+                    intent.putExtra("password", response.body().getPassword());
+                    intent.putExtra("schoolId", response.body().getSchoolId());
                     startActivity(intent);
                     finish();
                 }

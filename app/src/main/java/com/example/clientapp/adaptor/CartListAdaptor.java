@@ -43,10 +43,10 @@ public class CartListAdaptor extends RecyclerView.Adapter<CartListAdaptor.ViewHo
         holder.itemPrice.setText(String.valueOf(productsList.get(position).getPrice()));
 
         BigDecimal bigDecimalPrice = BigDecimal.valueOf(productsList.get(position).getPrice());
-        BigDecimal bigDecimalNumberInCart = BigDecimal.valueOf(productsList.get(position).getNumberInCart());
+        BigDecimal bigDecimalNumberInCart = BigDecimal.valueOf(productsList.get(position).getQuantity());
         holder.totalItemPrice.setText(String.valueOf(bigDecimalPrice.multiply(bigDecimalNumberInCart)));
 
-        holder.num.setText(String.valueOf(productsList.get(position).getNumberInCart()));
+        holder.num.setText(String.valueOf(productsList.get(position).getQuantity()));
 
         int drawableResourceId = holder.itemView.getContext()
                 .getResources()

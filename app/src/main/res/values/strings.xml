@@ -11,7 +11,7 @@
     <string name="register_hint">Ещё не зарегистрировались?</string>
     <string name="button_createAcc">Создать аккаунт</string>
     <string name="registerText">Регистрация</string>
-    <string name="fio">ФИО</string>
+    <string name="fio">Имя</string>
     <string name="surname">Фамилия</string>
     <string name="email">Почта</string>
     <string name="passAgain">Подтвердите пароль</string>

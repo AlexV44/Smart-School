@@ -1,12 +1,15 @@
 package com.example.clientapp.model;
 
+import java.util.List;
+
 public class Smember {
     private int id;
     private String password;
     private String email;
     private String name;
     private Role role;
-    private School school;
+    private int schoolId;
+    private List<Order> orders;
 
     public int getId() {
         return id;
@@ -48,12 +51,20 @@ public class Smember {
         this.role = role;
     }
 
-    public School getSchool() {
-        return school;
+    public int getSchoolId() {
+        return schoolId;
     }
 
-    public void setSchool(School school) {
-        this.school = school;
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

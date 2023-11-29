@@ -1,6 +1,7 @@
 package com.example.clientapp.adaptor;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,15 +16,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.clientapp.R;
 import com.example.clientapp.activities.ShowDetailActivity;
+import com.example.clientapp.fragments.ProfileFragment;
 import com.example.clientapp.model.Product;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder> {
-    private ArrayList<Product> productsList;
+    private List<Product> productsList;
+    private Context context;
 
-    public ProductAdaptor(ArrayList<Product> productsList) {
+  public ProductAdaptor(List<Product> productsList, Context context) {
         this.productsList = productsList;
+        this.context = context;
     }
 
     @Override
@@ -55,7 +61,6 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

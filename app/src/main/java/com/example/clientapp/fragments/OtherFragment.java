@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,17 @@ import android.widget.TextView;
 
 import com.example.clientapp.R;
 import com.example.clientapp.activities.StaffOrders;
+import com.example.clientapp.adaptor.OrderAdaptor;
+import com.example.clientapp.model.Order;
+import com.example.clientapp.retrofit.OrderApi;
+import com.example.clientapp.retrofit.RetrofitService;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +34,9 @@ import com.example.clientapp.activities.StaffOrders;
 public class OtherFragment extends Fragment {
 
     private TextView orderText, elderMail;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView recyclerViewOrdersList;
+    private List<Order> orders;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,12 +89,10 @@ public class OtherFragment extends Fragment {
 
     private void initView(View view) {
         orderText = view.findViewById(R.id.ordersText);
-        elderMail = view.findViewById(R.id.elderMail);
-
-        orderText.setOnClickListener(v -> OnOrdersList());
+        orderText.setOnClickListener(v -> OnOrdersList(view));
     }
 
-    private void OnOrdersList() {
+    private void OnOrdersList(View view) {
         Intent intent = new Intent(requireContext(), StaffOrders.class);
         startActivity(intent);
     }

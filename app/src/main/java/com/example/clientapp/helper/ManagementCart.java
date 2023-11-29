@@ -30,7 +30,7 @@ public class ManagementCart {
             }
         }
         if(existAlready) {
-            listProduct.get(n).setNumberInCart(item.getNumberInCart());
+            listProduct.get(n).setQuantity(item.getQuantity());
             Toast.makeText(context,"Уже в коризне!", Toast.LENGTH_SHORT).show();
         } else {
             listProduct.add(item);
@@ -44,16 +44,16 @@ public class ManagementCart {
     }
 
     public void plusNumberProduct(ArrayList<Product> productList, int position, ChangeNumberItemsListener changeNumberItemsListener) {
-        productList.get(position).setNumberInCart(productList.get(position).getNumberInCart() + 1);
+        productList.get(position).setQuantity(productList.get(position).getQuantity() + 1);
         tinyDB.putListObject("CartList", productList);
         changeNumberItemsListener.changed();
     }
 
     public void minusNumberProduct(ArrayList<Product> productList, int position, ChangeNumberItemsListener changeNumberItemsListener) {
-        if(productList.get(position).getNumberInCart() == 1) {
+        if(productList.get(position).getQuantity() == 1) {
            productList.remove(position);
         } else {
-            productList.get(position).setNumberInCart(productList.get(position).getNumberInCart() - 1);
+            productList.get(position).setQuantity(productList.get(position).getQuantity() - 1);
         }
         tinyDB.putListObject("CartList", productList);
         changeNumberItemsListener.changed();
@@ -64,7 +64,7 @@ public class ManagementCart {
         BigDecimal bigPrice = new BigDecimal(0.);
         for (int i = 0; i < productList.size(); i++) {
             BigDecimal bigDecimal1 = BigDecimal.valueOf(productList.get(i).getPrice());
-            BigDecimal bigDecimal2 = BigDecimal.valueOf(productList.get(i).getNumberInCart());
+            BigDecimal bigDecimal2 = BigDecimal.valueOf(productList.get(i).getQuantity());
             bigPrice = bigPrice.add(bigDecimal1.multiply(bigDecimal2));
         }
         return bigPrice.doubleValue();

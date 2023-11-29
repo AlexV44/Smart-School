@@ -7,6 +7,7 @@ public class School {
     private String name;
     private String identifier;
     private List<Smember> members;
+    private List<Product> products;
 
     public int getId() {
         return id;
@@ -38,6 +39,14 @@ public class School {
 
     public void setMembers(List<Smember> members) {
         this.members = members;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override
