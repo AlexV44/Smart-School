@@ -18,7 +18,10 @@ public interface OrderApi {
     @POST("/takeorder")
     Call<Order> takeorder(@Body Order order);
 
-    @GET("/orders")
-    Call<List<Order>> getAllOrders();
+    @GET("/api/orders")
+    Call<List<Order>> getAllSchoolOrders();
+
+    @POST("/deleteorder")
+    Call<Order> deleteOrder(@Body Order order);
 
 }

@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     smember.setPassword(response.body().getPassword());
                     smember.setId(response.body().getId());
                     smember.setSchoolId(response.body().getSchoolId());
+                    smember.setBalance(response.body().getBalance());
                     UserSessionManager.getInstance().setSmember(smember);
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -95,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("email", response.body().getEmail());
                     intent.putExtra("password", response.body().getPassword());
                     intent.putExtra("schoolId", response.body().getSchoolId());
+                    intent.putExtra("role", response.body().getRole().toString());
                     startActivity(intent);
                     finish();
                 }

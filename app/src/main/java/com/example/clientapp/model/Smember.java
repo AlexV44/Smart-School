@@ -10,6 +10,7 @@ public class Smember {
     private Role role;
     private int schoolId;
     private List<Order> orders;
+    private double balance;
 
     public int getId() {
         return id;
@@ -65,6 +66,14 @@ public class Smember {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override

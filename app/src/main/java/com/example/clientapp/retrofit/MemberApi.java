@@ -6,13 +6,11 @@ import com.example.clientapp.model.Smember;
 
 import java.util.List;
 
-import kotlin.ParameterName;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 
 public interface MemberApi {
     @GET("/member/get-all")
@@ -26,4 +24,10 @@ public interface MemberApi {
 
     @POST("/login")
     Call<Smember> login(@Body LoginRequest request);
+
+    @POST("/member/setstaff")
+    Call<Smember> setStaffById(@Body int id);
+
+    @POST("/member/setbalance")
+    Call<Double> updateUserBalance(@Body Smember member);
 }

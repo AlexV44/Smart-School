@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.clientapp.R;
 import com.example.clientapp.model.Product;
 
@@ -29,9 +31,17 @@ public class OrderProductsAdaptor extends RecyclerView.Adapter<OrderProductsAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-                    holder.productName.setText(String.valueOf(productList.get(position).getTitle()));
-                    holder.quantity.setText(String.valueOf(productList.get(position).getQuantity()));
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+                    holder.productTitle.setText(String.valueOf(productList.get(position).getTitle()));
+                    holder.orderProductsCount.setText(String.valueOf(productList.get(position).getQuantity()));
+
+        int drawableResourceId = holder.itemView.getContext()
+                .getResources()
+                .getIdentifier(productList.get(position).getPic(), "drawable", holder.itemView.getContext().getPackageName());
+
+        Glide.with(holder.itemView.getContext())
+                .load(drawableResourceId)
+                .into(holder.pic);
     }
 
     @Override
@@ -40,12 +50,14 @@ public class OrderProductsAdaptor extends RecyclerView.Adapter<OrderProductsAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName, quantity;
+        TextView productTitle, orderProductsCount;
+        private ImageView pic;
 
         public ViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.productName);
-            quantity = itemView.findViewById(R.id.quantity);
+            productTitle = itemView.findViewById(R.id.productTitle);
+            orderProductsCount = itemView.findViewById(R.id.orderProductsCount);
+            pic = itemView.findViewById(R.id.picOrder);
         }
     }
 }

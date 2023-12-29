@@ -4,22 +4,24 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clientapp.R;
 import com.example.clientapp.activities.StaffOrders;
-import com.example.clientapp.adaptor.OrderAdaptor;
+import com.example.clientapp.manager.UserSessionManager;
 import com.example.clientapp.model.Order;
-import com.example.clientapp.retrofit.OrderApi;
+import com.example.clientapp.model.Role;
+import com.example.clientapp.model.Smember;
+import com.example.clientapp.retrofit.MemberApi;
 import com.example.clientapp.retrofit.RetrofitService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,10 +35,11 @@ import retrofit2.Response;
  */
 public class OtherFragment extends Fragment {
 
-    private TextView orderText, elderMail;
+    private TextView orderText, editTextNumberDecimal;
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewOrdersList;
     private List<Order> orders;
+    private Button btnSetStaff;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,7 +84,7 @@ public class OtherFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_other, container, false);
+        View view = inflater.inflate(R.layout.fragment_other, container, false);
         initView(view);
 
         return view;
@@ -89,11 +92,52 @@ public class OtherFragment extends Fragment {
 
     private void initView(View view) {
         orderText = view.findViewById(R.id.ordersText);
-        orderText.setOnClickListener(v -> OnOrdersList(view));
+        editTextNumberDecimal = view.findViewById(R.id.editTextId);
+        btnSetStaff = view.findViewById(R.id.btnSetStaff);
+
+        orderText.setVisibility(View.GONE);
+        editTextNumberDecimal.setVisibility(View.GONE);
+        btnSetStaff.setVisibility(View.GONE);
+        if (getActivity().getIntent().getStringExtra("role").equals(Role.STAFF.toString())) {
+            orderText.setVisibility(View.VISIBLE);
+            orderText.setOnClickListener(v -> OnOrdersList());
+        }
+        if (getActivity().getIntent().getStringExtra("role").equals(Role.DIRECTOR.toString())) {
+            editTextNumberDecimal.setVisibility(View.VISIBLE);
+            btnSetStaff.setVisibility(View.VISIBLE);
+            btnSetStaff.setOnClickListener(v -> onSetStaffBtn());
+        }
     }
 
-    private void OnOrdersList(View view) {
+    private void onSetStaffBtn() {
+        if(editTextNumberDecimal.getText().toString().equals("")) {
+        } else {
+            int id = Integer.parseInt(editTextNumberDecimal.getText().toString());
+            if(!(UserSessionManager.getInstance().getSmember().getId() == id)) {
+                setStaff(id);
+            }
+            Toast.makeText(requireContext(), "Нельзя назначить самого себя!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void OnOrdersList() {
         Intent intent = new Intent(requireContext(), StaffOrders.class);
         startActivity(intent);
+    }
+
+    private void setStaff(int id) {
+        RetrofitService retrofitService = new RetrofitService();
+        MemberApi memberApi = retrofitService.getRetrofit().create(MemberApi.class);
+        memberApi.setStaffById(id).enqueue(new Callback<Smember>() {
+            @Override
+            public void onResponse(Call<Smember> call, Response<Smember> response) {
+                    Toast.makeText(requireContext(), "Сотрудник назначен!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Smember> call, Throwable t) {
+                Toast.makeText(requireContext(), "Сотрудник уже назначен.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

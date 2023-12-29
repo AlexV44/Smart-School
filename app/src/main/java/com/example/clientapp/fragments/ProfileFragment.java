@@ -11,11 +11,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.clientapp.R;
 import com.example.clientapp.activities.LoginActivity;
 import com.example.clientapp.model.Smember;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +27,7 @@ import com.example.clientapp.model.Smember;
  */
 public class ProfileFragment extends Fragment {
 
-    private TextView textView;
+    private TextView usernameTxt ,emailTxt;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,12 +73,17 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
-        textView = view.findViewById(R.id.textViews);
         Intent intent = getActivity().getIntent();
         String name = intent.getStringExtra("name");
-        textView.setText(name);
-
+        String email = intent.getStringExtra("email");
+        init(view);
+        usernameTxt.setText(String.valueOf(name));
+        emailTxt.setText(String.valueOf(email));
         return view;
     }
 
+    private void init(View view) {
+        usernameTxt = view.findViewById(R.id.username);
+        emailTxt = view.findViewById(R.id.userEmail);
+    }
 }

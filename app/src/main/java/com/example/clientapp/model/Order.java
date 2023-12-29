@@ -8,7 +8,6 @@ public class Order {
     private int memberId;
     private int schoolId;
 
-
     public Order(){
     }
 

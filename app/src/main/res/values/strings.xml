@@ -38,4 +38,11 @@
     <string name="schoolIdentifier">Ключ учреждения образования</string>
     <string name="InfoTitle">Справка</string>
     <string name="CurrentOrdersTitle">Текущие заказы</string>
+    <string name="cashAdd">Пополнить баланс: +10</string>
+    <string name="orderNum">Номер заказа:</string>
+    <string name="user">Пользователь:</string>
+    <string name="productsCount">Кол-во продуктов:</string>
+    <string name="memberOrder">Заказ пользователя:</string>
+    <string name="welcomeTxt">Добро пожаловать!</string>
+    <string name="balanceTxt">Баланс:</string>
 </resources>

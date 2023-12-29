@@ -100,11 +100,9 @@ public class CatalogFragment extends Fragment {
         recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
         ArrayList<CategoryDomain> category = new ArrayList<>();
-        category.add(new CategoryDomain("Pizza", "cat_1"));
-        category.add(new CategoryDomain("Burger", "cat_2"));
-        category.add(new CategoryDomain("Hotdog", "cat_3"));
-        category.add(new CategoryDomain("Drink", "cat_4"));
-        category.add(new CategoryDomain("Donut", "cat_5"));
+        category.add(new CategoryDomain("Мучное", "cat_3"));
+        category.add(new CategoryDomain("Напитки", "cat_4"));
+        category.add(new CategoryDomain("Снеки", "cat_5"));
 
         adapter = new CategoryAdaptor(category);
         recyclerViewCategoryList.setAdapter(adapter);
@@ -115,12 +113,6 @@ public class CatalogFragment extends Fragment {
         recyclerViewProductsList = view.findViewById(R.id.productsRecyclerView);
         recyclerViewProductsList.setLayoutManager(linearLayoutManager);
         ArrayList<Product> products = new ArrayList<>();
-       /* ArrayList<Product> products = new ArrayList<>();
-        products.add(new Product("Pizza", "pop_1", "Slices peperoni, cheese, tomatoes, oregano, chicken", 9.76));
-        products.add(new Product("Burger", "pop_2", "Cheese, sauce", 8.34));
-        products.add(new Product("Vegetable pizza", "pop_3", "Cheese, olive oil", 10.));
-        adapter2 = new ProductAdaptor(products, requireActivity());
-        recyclerViewProductsList.setAdapter(adapter2);*/
         RetrofitService retrofitService = new RetrofitService();
         SchoolApi schoolApi = retrofitService.getRetrofit().create(SchoolApi.class);
         adapter2 = new ProductAdaptor(products, requireActivity());
@@ -135,8 +127,6 @@ public class CatalogFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                int a = 1;
-                int b = a;
             }
         });
     }
