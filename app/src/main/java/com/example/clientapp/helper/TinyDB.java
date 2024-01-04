@@ -1,4 +1,5 @@
 package com.example.clientapp.helper;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -8,7 +9,6 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-
 
 import com.example.clientapp.model.Product;
 import com.google.gson.Gson;

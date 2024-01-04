@@ -7,6 +7,7 @@ public class Order {
     private List<Product> products;
     private int memberId;
     private int schoolId;
+    private String time;
 
     public Order(){
     }
@@ -45,5 +46,13 @@ public class Order {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

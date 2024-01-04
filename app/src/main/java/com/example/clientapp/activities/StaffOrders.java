@@ -1,28 +1,20 @@
 package com.example.clientapp.activities;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-
 import com.example.clientapp.R;
-import com.example.clientapp.adaptor.CategoryAdaptor;
 import com.example.clientapp.adaptor.OrderAdaptor;
-import com.example.clientapp.adaptor.ProductAdaptor;
-import com.example.clientapp.domain.CategoryDomain;
 import com.example.clientapp.manager.UserSessionManager;
 import com.example.clientapp.model.Order;
-import com.example.clientapp.model.Product;
-import com.example.clientapp.retrofit.OrderApi;
 import com.example.clientapp.retrofit.RetrofitService;
 import com.example.clientapp.retrofit.SchoolApi;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,10 +30,10 @@ public class StaffOrders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_orders);
-        recyclerViewOrdersList();
+        setRecyclerViewOrdersList();
     }
 
-    private void recyclerViewOrdersList() {
+    private void setRecyclerViewOrdersList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(StaffOrders.this, LinearLayoutManager.VERTICAL, false);
         recyclerViewOrdersList = findViewById(R.id.recyclerViewOrdersMain);
         recyclerViewOrdersList.setLayoutManager(linearLayoutManager);
@@ -61,7 +53,6 @@ public class StaffOrders extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Order>> call, Throwable t) {
-
             }
         });
     }

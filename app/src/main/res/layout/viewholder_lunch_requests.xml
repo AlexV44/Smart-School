@@ -13,22 +13,11 @@
     android:elevation="3dp">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="#"
-        android:textColor="#373b54"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/orderId"
-        app:layout_constraintEnd_toStartOf="@+id/orderId"
-        app:layout_constraintTop_toTopOf="@+id/orderId" />
-
-    <TextView
-        android:id="@+id/orderId"
+        android:id="@+id/classNameRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="orderId"
+        android:text="name"
         android:textColor="#373b54"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -37,45 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/orderTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="time"
-        android:textColor="#373b54"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/orderTime"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/orderId"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/productsCount"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/orderProductsCount"
+        android:id="@+id/studentsCountRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -83,8 +34,69 @@
         android:textColor="#373b54"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintBottom_toBottomOf="@+id/studentsCountRequestText"
+        app:layout_constraintStart_toEndOf="@+id/studentsCountRequestText"
+        app:layout_constraintTop_toTopOf="@+id/studentsCountRequestText" />
+
+    <TextView
+        android:id="@+id/studentsCountRequestText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/studentsCount"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/classNameRequest"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/freeStudentsCountRequestText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/freeStudentsCount"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/studentsCountRequestText"
+        app:layout_constraintTop_toBottomOf="@+id/studentsCountRequestText" />
+
+    <TextView
+        android:id="@+id/freeStudentsCountRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="freeCount"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/freeStudentsCountRequestText"
+        app:layout_constraintStart_toEndOf="@+id/freeStudentsCountRequestText"
+        app:layout_constraintTop_toTopOf="@+id/freeStudentsCountRequestText" />
+
+    <TextView
+        android:id="@+id/requestTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/requestTime"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/freeStudentsCountRequestText"
+        app:layout_constraintTop_toBottomOf="@+id/freeStudentsCountRequestText" />
+
+    <TextView
+        android:id="@+id/requestTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="time"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/requestTimeText"
+        app:layout_constraintStart_toEndOf="@+id/requestTimeText"
+        app:layout_constraintTop_toTopOf="@+id/requestTimeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,30 +1,21 @@
 package com.example.clientapp.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.clientapp.R;
 import com.example.clientapp.adaptor.CategoryAdaptor;
-import com.example.clientapp.adaptor.OrderAdaptor;
 import com.example.clientapp.adaptor.ProductAdaptor;
-import com.example.clientapp.databinding.ActivityMainBinding;
 import com.example.clientapp.domain.CategoryDomain;
 import com.example.clientapp.manager.UserSessionManager;
-import com.example.clientapp.model.LoginRequest;
-import com.example.clientapp.model.Order;
 import com.example.clientapp.model.Product;
-import com.example.clientapp.model.Smember;
-import com.example.clientapp.retrofit.MemberApi;
 import com.example.clientapp.retrofit.RetrofitService;
 import com.example.clientapp.retrofit.SchoolApi;
 

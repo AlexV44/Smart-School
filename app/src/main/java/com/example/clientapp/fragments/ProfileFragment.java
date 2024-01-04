@@ -1,24 +1,15 @@
 package com.example.clientapp.fragments;
 
-import static android.content.Intent.getIntent;
-import static android.content.Intent.getIntentOld;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.clientapp.R;
-import com.example.clientapp.activities.LoginActivity;
-import com.example.clientapp.model.Smember;
+import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
+import com.example.clientapp.R;
 
 /**
  * A simple {@link Fragment} subclass.

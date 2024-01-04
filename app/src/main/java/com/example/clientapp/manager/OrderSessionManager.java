@@ -1,7 +1,6 @@
 package com.example.clientapp.manager;
 
 import com.example.clientapp.model.Order;
-import com.example.clientapp.model.Smember;
 
 public class OrderSessionManager {
     private static OrderSessionManager instance;

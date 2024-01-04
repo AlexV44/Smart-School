@@ -10,7 +10,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface MemberApi {
     @GET("/member/get-all")
@@ -30,4 +29,13 @@ public interface MemberApi {
 
     @POST("/member/setbalance")
     Call<Double> updateUserBalance(@Body Smember member);
+
+    @POST("/getuser")
+    Call<Smember> getUserById(@Body int id);
+
+    @POST("/member/setteacher")
+    Call<Smember> setTeacherById(@Body int id);
+
+    @POST("/member/setelder")
+    Call<Smember> setElderById(@Body int id);
 }

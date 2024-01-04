@@ -1,25 +1,18 @@
 package com.example.clientapp.activities;
 
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clientapp.R;
-import com.example.clientapp.adaptor.CategoryAdaptor;
 import com.example.clientapp.databinding.ActivityMainBinding;
-import com.example.clientapp.domain.CategoryDomain;
 import com.example.clientapp.fragments.CartFragment;
 import com.example.clientapp.fragments.CatalogFragment;
 import com.example.clientapp.fragments.OtherFragment;
 import com.example.clientapp.fragments.ProfileFragment;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

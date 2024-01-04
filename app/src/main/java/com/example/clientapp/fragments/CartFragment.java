@@ -1,5 +1,6 @@
 package com.example.clientapp.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,10 @@ import com.example.clientapp.retrofit.OrderApi;
 import com.example.clientapp.retrofit.RetrofitService;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -122,13 +126,20 @@ public class CartFragment extends Fragment {
         orderBtn.setOnClickListener(v -> OnOrderClick());
     }
 
+    public String getMoscowTime() {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat moscowTime = new SimpleDateFormat("HH:mm:ss");
+        moscowTime.setTimeZone(TimeZone.getTimeZone("Europe/Moscow"));
+        return moscowTime.format(new Date());
+    }
+
     private void OnOrderClick() {
-        if(managementCart.getTotalPrice() < orderLimit) {
+        if(managementCart.getTotalPrice() <= orderLimit) {
             if (balance >= managementCart.getTotalPrice()) {
                 List<Product> orderProducts = managementCart.getListCart();
                 Order order = new Order();
                 order.setProducts(orderProducts);
                 order.setMemberId(UserSessionManager.getInstance().getSmember().getId());
+                order.setTime(getMoscowTime());
                 order.setSchoolId(UserSessionManager.getInstance().getSmember().getSchoolId());
                 orderApi.takeorder(order).enqueue(new Callback<Order>() {
                     @Override

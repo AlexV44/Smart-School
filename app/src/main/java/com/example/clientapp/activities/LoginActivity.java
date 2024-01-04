@@ -3,24 +3,18 @@ package com.example.clientapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.clientapp.R;
-import com.example.clientapp.fragments.ProfileFragment;
 import com.example.clientapp.manager.UserSessionManager;
 import com.example.clientapp.model.LoginRequest;
 import com.example.clientapp.model.Smember;
 import com.example.clientapp.retrofit.MemberApi;
 import com.example.clientapp.retrofit.RetrofitService;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

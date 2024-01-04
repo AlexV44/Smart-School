@@ -1,16 +1,16 @@
 package com.example.clientapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.example.clientapp.R;
-import com.example.clientapp.model.Product;
 import com.example.clientapp.helper.ManagementCart;
+import com.example.clientapp.model.Product;
 
 public class ShowDetailActivity extends AppCompatActivity {
 

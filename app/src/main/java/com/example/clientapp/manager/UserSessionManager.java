@@ -1,7 +1,5 @@
 package com.example.clientapp.manager;
 
-import android.os.Bundle;
-
 import com.example.clientapp.model.Smember;
 
 public class UserSessionManager {

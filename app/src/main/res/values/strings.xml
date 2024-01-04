@@ -36,13 +36,18 @@
     <string name="order_btn">Заказать</string>
     <string name="emptyCart">Корзина пуста.</string>
     <string name="schoolIdentifier">Ключ учреждения образования</string>
-    <string name="InfoTitle">Справка</string>
+    <string name="InfoTitle">Инфо</string>
     <string name="CurrentOrdersTitle">Текущие заказы</string>
     <string name="cashAdd">Пополнить баланс: +10</string>
     <string name="orderNum">Номер заказа:</string>
-    <string name="user">Пользователь:</string>
+    <string name="orderTime">Время заказа:</string>
     <string name="productsCount">Кол-во продуктов:</string>
     <string name="memberOrder">Заказ пользователя:</string>
     <string name="welcomeTxt">Добро пожаловать!</string>
     <string name="balanceTxt">Баланс:</string>
+    <string name="currentRequests">Текущие заявки</string>
+    <string name="requestTime">Время заявки:</string>
+    <string name="freeStudentsCount">Кол-во бесплатников:</string>
+    <string name="studentsCount">Кол-во питающихся:</string>
+    <string name="enterStudentsCount">Введите число</string>
 </resources>
