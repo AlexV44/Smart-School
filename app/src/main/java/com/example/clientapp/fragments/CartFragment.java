@@ -23,6 +23,7 @@ import com.example.clientapp.model.Order;
 import com.example.clientapp.model.Product;
 import com.example.clientapp.retrofit.MemberApi;
 import com.example.clientapp.retrofit.OrderApi;
+import com.example.clientapp.retrofit.ProductApi;
 import com.example.clientapp.retrofit.RetrofitService;
 
 import java.math.BigDecimal;
@@ -133,37 +134,42 @@ public class CartFragment extends Fragment {
     }
 
     private void OnOrderClick() {
-        if(managementCart.getTotalPrice() <= orderLimit) {
-            if (balance >= managementCart.getTotalPrice()) {
-                List<Product> orderProducts = managementCart.getListCart();
-                Order order = new Order();
-                order.setProducts(orderProducts);
-                order.setMemberId(UserSessionManager.getInstance().getSmember().getId());
-                order.setTime(getMoscowTime());
-                order.setSchoolId(UserSessionManager.getInstance().getSmember().getSchoolId());
-                orderApi.takeorder(order).enqueue(new Callback<Order>() {
-                    @Override
-                    public void onResponse(Call<Order> call, Response<Order> response) {
-                        Toast.makeText(requireContext(), "Заказ оформлен!", Toast.LENGTH_SHORT).show();
-                        BigDecimal bigDecimalBalance = BigDecimal.valueOf(balance);
-                        BigDecimal bigDecimalCost = BigDecimal.valueOf(managementCart.getTotalPrice());
-                        BigDecimal bigDecimalResult = bigDecimalBalance.subtract(bigDecimalCost);
-                        balanceTxt.setText(String.valueOf(bigDecimalResult));
-                        UserSessionManager.getInstance().getSmember().setBalance(bigDecimalResult.doubleValue());
-                        balance = UserSessionManager.getInstance().getSmember().getBalance();
-                        updateBalance();
-                    }
-                    @Override
-                    public void onFailure(Call<Order> call, Throwable t) {
+        if(managementCart.getTotalPrice() != 0) {
+            if (managementCart.getTotalPrice() <= orderLimit) {
+                if (balance >= managementCart.getTotalPrice()) {
+                    List<Product> orderProducts = managementCart.getListCart();
+                    Order order = new Order();
+                    order.setProducts(orderProducts);
+                    order.setMemberId(UserSessionManager.getInstance().getSmember().getId());
+                    order.setTime(getMoscowTime());
+                    order.setSchoolId(UserSessionManager.getInstance().getSmember().getSchoolId());
+                    orderApi.takeorder(order).enqueue(new Callback<Order>() {
+                        @Override
+                        public void onResponse(Call<Order> call, Response<Order> response) {
+                            Toast.makeText(requireContext(), "Заказ оформлен!", Toast.LENGTH_SHORT).show();
+                            BigDecimal bigDecimalBalance = BigDecimal.valueOf(balance);
+                            BigDecimal bigDecimalCost = BigDecimal.valueOf(managementCart.getTotalPrice());
+                            BigDecimal bigDecimalResult = bigDecimalBalance.subtract(bigDecimalCost);
+                            balanceTxt.setText(String.valueOf(bigDecimalResult));
+                            UserSessionManager.getInstance().getSmember().setBalance(bigDecimalResult.doubleValue());
+                            balance = UserSessionManager.getInstance().getSmember().getBalance();
+                            updateBalance();
+                        }
 
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<Order> call, Throwable t) {
 
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(requireContext(), "Недостаточно средств.", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(requireContext(), "Недостаточно средств.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Превышен лимит.", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(requireContext(), "Превышен лимит.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Корзина пуста.", Toast.LENGTH_SHORT).show();
         }
     }
 

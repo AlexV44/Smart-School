@@ -23,9 +23,6 @@ import java.util.List;
 public class OrderAdaptor extends RecyclerView.Adapter<OrderAdaptor.ViewHolder>{
 
     private List<Order> orderList;
-    MemberApi memberApi;
-    Smember smember;
-
 
     public OrderAdaptor(List<Order> orderList) {
         this.orderList = orderList;

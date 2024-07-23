@@ -16,7 +16,7 @@
     <string name="email">Почта</string>
     <string name="passAgain">Подтвердите пароль</string>
     <string name="SignUp">Регистрация</string>
-    <string name="text_haveAcc">Уже еcть аккаунт?</string>Что-то ищете?
+    <string name="text_haveAcc">Уже еcть аккаунт?</string>
     <string name="text_search">Что-то ищете?</string>
     <string name="deliver_text">Закажи,</string>
     <string name="pay_text">оплати,</string>
@@ -30,7 +30,7 @@
     <string name="ElderMail">>Заявки в столовую</string>
     <string name="add_to_cart">В корзину</string>
     <string name="addBtn">В корзину</string>
-    <string name="Banknote">Br</string>
+    <string name="Banknote">руб.</string>
     <string name="my_cart_text">Моя корзина</string>
     <string name="items_total">Всего:</string>
     <string name="order_btn">Заказать</string>
