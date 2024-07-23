@@ -17,8 +17,13 @@ import com.bumptech.glide.Glide;
 import com.example.clientapp.R;
 import com.example.clientapp.activities.ShowDetailActivity;
 import com.example.clientapp.model.Product;
+import com.example.clientapp.retrofit.ProductApi;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder> {
     private List<Product> productsList;
@@ -37,7 +42,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdaptor.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.title.setText(productsList.get(position).getTitle() + " ·");
+        holder.title.setText(productsList.get(position).getTitle());
         holder.price.setText(String.valueOf(productsList.get(position).getPrice()));
         holder.description.setText((String.valueOf(productsList.get(position).getDescription())));
 

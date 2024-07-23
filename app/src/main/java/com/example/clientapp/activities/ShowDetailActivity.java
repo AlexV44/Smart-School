@@ -19,6 +19,7 @@ public class ShowDetailActivity extends AppCompatActivity {
     private Product object;
     private int numberOrder = 1;
     private ManagementCart managementCart;
+    private String banknote = "руб.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 .into(picProduct);
 
         titleDetail.setText(object.getTitle());
-        priceDetail.setText(object.getPrice() + "Br");
+        priceDetail.setText(object.getPrice() + banknote);
 
         descriptionDetail.setText(object.getDescription());
         numberOrderDetail.setText(String.valueOf(numberOrder));

@@ -15,20 +15,33 @@ import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clientapp.R;
+import com.example.clientapp.activities.ProductsInStockActivity;
 import com.example.clientapp.activities.StaffLunchRequests;
 import com.example.clientapp.activities.StaffOrders;
+import com.example.clientapp.adaptor.OrderAdaptor;
+import com.example.clientapp.adaptor.SchoolProductQuantityAdaptor;
 import com.example.clientapp.manager.UserSessionManager;
 import com.example.clientapp.model.LunchRequest;
+import com.example.clientapp.model.Product;
 import com.example.clientapp.model.Role;
+import com.example.clientapp.model.School;
+import com.example.clientapp.model.SchoolProduct;
 import com.example.clientapp.model.Smember;
 import com.example.clientapp.retrofit.LunchRequestApi;
 import com.example.clientapp.retrofit.MemberApi;
+import com.example.clientapp.retrofit.ProductApi;
 import com.example.clientapp.retrofit.RetrofitService;
+import com.example.clientapp.retrofit.SchoolApi;
+import com.example.clientapp.retrofit.SchoolProductApi;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 import retrofit2.Call;
@@ -42,7 +55,7 @@ import retrofit2.Response;
  */
 public class OtherFragment extends Fragment {
 
-    private TextView orderText, editTextNumberDecimal, editTextStudentsCount, editTextFreeStudentsCount, lunchRequestsText, mainTitle;
+    private TextView orderText, editTextNumberDecimal, editTextStudentsCount, editTextFreeStudentsCount, lunchRequestsText, mainTitle, productsInStock;
     private Button setStaffBtn, lunchRequestBtn;
     private Spinner rolesSpinner, classNumberSpinner, classLetterSpinner;
     private ConstraintLayout constraintLayoutRequest, constraintLayoutSetStaff, constraintLayoutStaffInfo;
@@ -115,6 +128,7 @@ public class OtherFragment extends Fragment {
         constraintLayoutStaffInfo = view.findViewById(R.id.constraintLayoutStaffInfo);
         constraintLayoutSetStaff = view.findViewById(R.id.constraintLayoutSetStaff);
         lunchRequestsText = view.findViewById(R.id.lunchRequestsText);
+        productsInStock = view.findViewById(R.id.productsInStock);
         mainTitle = view.findViewById(R.id.mainTitle);
 
         classNumberSpinner = view.findViewById(R.id.classNumberSpinner);
@@ -177,11 +191,16 @@ public class OtherFragment extends Fragment {
         constraintLayoutStaffInfo.setVisibility(View.GONE);
         constraintLayoutSetStaff.setVisibility(View.GONE);
 
+        if (getActivity().getIntent().getStringExtra("role").equals(Role.USER.toString())) {
+            mainTitle.setText("");
+        }
+
         if (getActivity().getIntent().getStringExtra("role").equals(Role.STAFF.toString())) {
-            mainTitle.setText("Столовая");
+            mainTitle.setText("Питание");
             constraintLayoutStaffInfo.setVisibility(View.VISIBLE);
             orderText.setOnClickListener(v -> onOrdersList());
             lunchRequestsText.setOnClickListener(v -> onWatchLunchRequests());
+            productsInStock.setOnClickListener(v -> onCheckProductsInStock());
         }
         if (getActivity().getIntent().getStringExtra("role").equals(Role.TEACHER.toString())) {
             mainTitle.setText("Назначение старосты");
@@ -199,6 +218,11 @@ public class OtherFragment extends Fragment {
             constraintLayoutRequest.setVisibility(View.VISIBLE);
             lunchRequestBtn.setOnClickListener(v -> onSetLunchRequestBtn(lunchApi));
         }
+    }
+
+    private void onCheckProductsInStock() {
+        Intent intent = new Intent(requireContext(), ProductsInStockActivity.class);
+        startActivity(intent);
     }
 
     private void onWatchLunchRequests() {

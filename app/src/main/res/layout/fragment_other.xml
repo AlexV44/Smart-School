@@ -166,6 +166,18 @@
             android:textSize="28sp"
             app:layout_constraintTop_toBottomOf="@+id/ordersText"
             app:layout_constraintStart_toStartOf="@+id/ordersText"/>
+
+        <TextView
+            android:id="@+id/productsInStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">Товар в наличии"
+            android:layout_marginTop="16dp"
+            android:textColor="#373b54"
+            android:textSize="28sp"
+            app:layout_constraintTop_toBottomOf="@+id/lunchRequestsText"
+            app:layout_constraintStart_toStartOf="@+id/lunchRequestsText"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

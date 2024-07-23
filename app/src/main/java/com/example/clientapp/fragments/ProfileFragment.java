@@ -10,6 +10,16 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.clientapp.R;
+import com.example.clientapp.manager.UserSessionManager;
+import com.example.clientapp.model.SchoolProduct;
+import com.example.clientapp.retrofit.RetrofitService;
+import com.example.clientapp.retrofit.SchoolProductApi;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,6 +79,20 @@ public class ProfileFragment extends Fragment {
         String email = intent.getStringExtra("email");
         init(view);
         usernameTxt.setText(String.valueOf(name));
+        /*RetrofitService retrofitService = new RetrofitService();
+        SchoolProductApi schoolProductApi = retrofitService.getRetrofit().create(SchoolProductApi.class);
+        schoolProductApi.getSchoolProducts(UserSessionManager.getInstance().getSmember().getSchoolId())
+                .enqueue(new Callback<List<SchoolProduct>>() {
+            @Override
+            public void onResponse(Call<List<SchoolProduct>> call, Response<List<SchoolProduct>> response) {
+                usernameTxt.setText(String.valueOf(response.body().get(0).getQuantity()));
+            }
+
+            @Override
+            public void onFailure(Call<List<SchoolProduct>> call, Throwable t) {
+
+            }
+        });*/
         emailTxt.setText(String.valueOf(email));
         return view;
     }
