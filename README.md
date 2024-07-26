@@ -12,13 +12,13 @@ and to establish strong cooperation between all schools
 This project is the Android app for the school's efficiency.
 
 # Running the app
-To connect with Server go to the `RetrofitService` class and change IPv4-address to yours.
+To connect with Server go to the `RetrofitService` class in the `retrofit` package and change IPv4-address to yours.
 
 To login in the app use 
-- email '///' and password '///' for USER ROLE,
-- email '///' and password '///' for ELDER ROLE,
-- email '///' and password '///' for TEACHER ROLE,
-- email '///' and password '///' for STAFF ROLE,
+- email '///' and password '///' for USER ROLE.
+- email '///' and password '///' for ELDER ROLE.
+- email '///' and password '///' for TEACHER ROLE.
+- email '///' and password '///' for STAFF ROLE.
 - email '///' and password '///' for DIRECTOR ROLE.
 
 # Development Environment
