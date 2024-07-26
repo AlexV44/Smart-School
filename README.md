@@ -21,6 +21,9 @@ To login in the app use
 - email '///' and password '///' for STAFF role.
 - email '///' and password '///' for DIRECTOR role.
 
+# Features
+aaaa
+
 # Development Environment
 The app is written entirely in Java and uses the Gradle build system.
 
