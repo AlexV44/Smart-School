@@ -15,11 +15,11 @@ This project is the Android app for the school's efficiency.
 To connect with Server go to the `RetrofitService` class in the `retrofit` package and change IPv4-address to yours.
 
 To login in the app use 
-- email '///' and password '///' for USER ROLE.
-- email '///' and password '///' for ELDER ROLE.
-- email '///' and password '///' for TEACHER ROLE.
-- email '///' and password '///' for STAFF ROLE.
-- email '///' and password '///' for DIRECTOR ROLE.
+- email '///' and password '///' for USER role.
+- email '///' and password '///' for ELDER role.
+- email '///' and password '///' for TEACHER role.
+- email '///' and password '///' for STAFF role.
+- email '///' and password '///' for DIRECTOR role.
 
 # Development Environment
 The app is written entirely in Java and uses the Gradle build system.
