@@ -13,12 +13,11 @@ This project is the Android app for the schools.
 
 # Running the app
 To login in the app use 
-email '///' and password '///' for USER ROLE,
-email '///' and password '///' for ELDER ROLE,
-email '///' and password '///' for TEACHER ROLE,
-email '///' and password '///' for STAFF ROLE,
-email '///' and password '///' for DIRECTOR ROLE.
-
+- email '///' and password '///' for USER ROLE,
+- email '///' and password '///' for ELDER ROLE,
+- email '///' and password '///' for TEACHER ROLE,
+- email '///' and password '///' for STAFF ROLE,
+- email '///' and password '///' for DIRECTOR ROLE.
 
 
 
