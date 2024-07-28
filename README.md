@@ -25,7 +25,7 @@ To login in the app use
 The app displays a menu of cafe products that users can order. Users have their own roles (user, elder, teacher, staff, director). 
 Users with specifiec role can do electronic applications, assign users to the roles, view all orders and applications that already have been made.
 <div>
-  <img align="center" src="C:\Users\User\Desktop\НПК\menu.jpg" alt="Menu screenshot" height="640" width="320">
+  <img align="center" src="" alt="Menu screenshot" height="640" width="320">
 </div>
 
 # Development Environment
