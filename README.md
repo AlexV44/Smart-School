@@ -15,7 +15,7 @@ This project is the Android app for the school's efficiency.
 To connect with Server go to the `RetrofitService` class in the `retrofit` package and change IPv4-address to yours.
 
 To login in the app use 
-- email 'test1@' and password 'user' for USER role.
+- email `test1@` and password `user` for USER role.
 - email 'test2@' and password 'elder' for ELDER role.
 - email 'test3@' and password 'teacher' for TEACHER role.
 - email 'test4@' and password 'staff' for STAFF role.
