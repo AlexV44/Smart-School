@@ -25,8 +25,6 @@ To login in the app use
 The app displays a menu of cafe products that users can order. Users have their own roles (user, elder, teacher, staff, director). 
 Users with specifiec role can do electronic applications, assign users to the roles, view all orders and applications that already have been made.
 
-Other features include a Map of the venue, informational pages to guide attendees during the conference in Info, and time-relevant information during the conference in Home.
-
 # Development Environment
 The app is written entirely in Java and uses the Gradle build system.
 
