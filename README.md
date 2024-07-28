@@ -17,9 +17,9 @@ To connect with Server go to the `RetrofitService` class in the `retrofit` packa
 To login in the app use 
 - email `test1@` and password `user` for USER role.
 - email `test2@` and password `elder` for ELDER role.
-- email 'test3@' and password 'teacher' for TEACHER role.
-- email 'test4@' and password 'staff' for STAFF role.
-- email 'test5@' and password 'director' for DIRECTOR role.
+- email `test3@` and password `teacher` for TEACHER role.
+- email `test4@` and password `staff` for STAFF role.
+- email `test5@` and password `director` for DIRECTOR role.
 
 # Features
 aaaa
