@@ -29,7 +29,7 @@ Users with specifiec role can do electronic applications, assign users to the ro
 </div>
 
 # Development Environment
-The app is written entirely in Java and uses the Gradle build system.
+The app is written entirely in Java with Spring Framework and uses the Gradle build system.
 
 To build the app, use the `gradlew build` command or use "Import Project" in
 Android Studio.
